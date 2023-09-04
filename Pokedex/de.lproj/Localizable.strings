@@ -1,0 +1,17 @@
+// MARK: Tab View
+
+"home.tab.title" = "Übersicht";
+
+"pokedex.tab.title" = "Pokédex";
+
+"favorites.tab.title" = "Liebelings";
+
+// MARK: Home
+
+"home.greetings.header" = "Willkommen zurück!";
+
+"home.search.title" = "Nach welchem Pokémon suchst du?";
+
+// MARK: General
+
+"search.pokemon.placeholder" = "Search Pokémon by name";
