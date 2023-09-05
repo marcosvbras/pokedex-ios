@@ -15,3 +15,9 @@
 // MARK: General
 
 "search.pokemon.placeholder" = "Search Pokémon by name";
+
+"segmented.control.display.layout.title" = "Display Layout:";
+
+"segmented.control.item.list" = "List";
+
+"segmented.control.item.grid" = "Grid";
