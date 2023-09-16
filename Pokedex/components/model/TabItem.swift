@@ -1,6 +1,6 @@
 import SwiftUI
 
-enum MainTabItem: Int, CaseIterable {
+enum TabViewItemUiModel: Int, CaseIterable {
     case home
     case captured
     case favorite

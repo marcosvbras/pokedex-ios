@@ -2,8 +2,6 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @State var searchCriteria: String = ""
-    
     var body: some View {
         ScrollView {
             VStack {
@@ -15,7 +13,7 @@ struct HomeView: View {
         .background(.white)
     }
     
-    func SearchSectionView() -> some View {
+    private func SearchSectionView() -> some View {
         VStack(alignment: .leading) {
             Text(Strings.Home.greetingsHeader)
                 .font(.system(.largeTitle, weight: .bold))
@@ -25,12 +23,30 @@ struct HomeView: View {
                 Text(Strings.Home.searchTitle)
                     .font(.system(size: 26))
                 
-                SearchBoxView()
+                SearchField(prompt: Strings.General.searchPokemonPrompt)
                     .padding(.bottom, 20)
+                    .background(
+                        alignment: .top, content: {
+                            Image(Icons.homeBackground1)
+                                .resizable()
+                                .frame(width: 43, height: 43)
+                                .opacity(0.1)
+                                .offset(x: 80, y: -36)
+                        }
+                    )
             }
             .padding(.horizontal, Sizes.Padding.medium)
+            .padding(.top, Sizes.Padding.large)
         }
-        .background(.white)
+        .background(
+            alignment: .trailing, content: {
+                Image(Icons.filledPokeball)
+                    .resizable()
+                    .frame(width: 220, height: 220)
+                    .opacity(0.1)
+                    .offset(x: 105, y: -55)
+            }
+        )
     }
     
     func NewsSectionView() -> some View {
@@ -50,7 +66,8 @@ struct HomeView: View {
     func PokemonCard() -> some View {
         VStack {
             Text("Pokémon of the day")
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .fillWidth()
+                .frame(alignment: .leading)
                 .padding(.top, 20)
                 .padding(.bottom, 10)
                 .padding(.horizontal, 20)
@@ -64,7 +81,7 @@ struct HomeView: View {
                 .aspectRatio(contentMode: .fit)
                 .padding(.bottom, 20)
         }
-        .frame(maxWidth: .infinity)
+        .fillWidth()
         .background(Colors.orange)
         .cornerRadius(15)
         .padding(.horizontal)

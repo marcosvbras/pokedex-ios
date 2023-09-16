@@ -34,7 +34,8 @@ struct CapturedCardView: View {
             
             CapturedImageView(image: uiModel.image)
         }
-        .frame(maxWidth: .infinity, maxHeight: 130)
+        .fillWidth()
+        .frame(maxHeight: 130)
         .background(backgroundColor)
         .cornerRadius(12)
         .shadow(radius: 2, x: 0, y: 1)

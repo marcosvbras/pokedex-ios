@@ -9,7 +9,7 @@ enum Strings {
     }
     
     enum General {
-        static let searchPokemonPlaceholder: LocalizedStringKey = "search.pokemon.placeholder"
+        static let searchPokemonPrompt: LocalizedStringKey = "search.pokemon.placeholder"
         static let displayLayoutTitle: LocalizedStringKey = "segmented.control.display.layout.title"
         static let displayLayoutItemList: LocalizedStringKey = "segmented.control.item.list"
         static let displayLayoutItemGrid: LocalizedStringKey = "segmented.control.item.grid"

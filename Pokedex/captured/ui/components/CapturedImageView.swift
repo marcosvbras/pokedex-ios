@@ -27,7 +27,7 @@ struct CapturedImageView_Previews: PreviewProvider {
         VStack {
             CapturedImageView(image: "jigglypuff")
         }
-        .frame(width: .infinity, height: .infinity)
+        .fullScreen()
         .previewLayout(.fixed(width: .infinity, height: .infinity))
     }
 }

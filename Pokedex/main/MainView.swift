@@ -6,15 +6,15 @@ struct MainView: View {
     
     var body: some View {
         TabContainerView(
-            tabs: MainTabItem.allCases,
+            tabItems: TabViewItemUiModel.allCases,
             selectedIndex: $selectedIndex
         ) { index in
-            getTabView(type: MainTabItem.init(rawValue: index) ?? .home)
+            getTabView(type: TabViewItemUiModel.init(rawValue: index) ?? .home)
         }
     }
     
     @ViewBuilder
-    func getTabView(type: MainTabItem) -> some View {
+    func getTabView(type: TabViewItemUiModel) -> some View {
         switch type {
         case .home:
             HomeView()

@@ -1,22 +1,17 @@
 import SwiftUI
 
-struct IconButtonView: View {
+struct IconButtonView<InnerImage: View>: View {
     
-    var icon: String
     var width: CGFloat
     var height: CGFloat
-    var foregroundColor: Color = Color.black
+    @ViewBuilder let innerImage: () -> InnerImage
     var clickAction: () -> Void
     
     var body: some View {
         Button {
             clickAction()
         } label: {
-            Image(icon)
-                .renderingMode(.template)
-                .resizable()
-                .foregroundColor(foregroundColor)
-                .padding(Sizes.Padding.medium)
+            innerImage()
         }
         .frame(width: width, height: height)
         .background(Colors.lightGray)
@@ -24,9 +19,21 @@ struct IconButtonView: View {
     }
 }
 
+// MARK: Previews
 struct IconButtonView_Previews: PreviewProvider {
 
     static var previews: some View {
-        IconButtonView(icon: Icons.settings, width: 100, height: 100) {}
+        IconButtonView(
+            width: 200,
+            height: 200,
+            innerImage: {
+                Image(Icons.favorite)
+                    .renderingMode(.template)
+                    .resizable()
+                    .foregroundColor(.black)
+                    .padding(Sizes.Padding.medium)
+            },
+            clickAction: {}
+        )
     }
 }

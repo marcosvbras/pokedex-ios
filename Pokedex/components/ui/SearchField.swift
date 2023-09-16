@@ -1,16 +1,18 @@
 import SwiftUI
 
-struct SearchBoxView: View {
+struct SearchField: View {
     
     @State var searchTerm = ""
     var height: CGFloat = 60
     @FocusState var isFocused: Bool
+    var prompt: LocalizedStringKey
     
     var body: some View {
         HStack {
             SearchIcon()
             
-            SearchInputFieldView()
+            SearchInputField()
+                .fillHeight()
         }
         .frame(height: height)
         .background(Colors.lightGray)
@@ -24,13 +26,14 @@ struct SearchBoxView: View {
             .renderingMode(.template)
             .frame(width: 22, height: 22)
             .padding(.leading, Sizes.Padding.medium)
+            .foregroundColor(isFocused ? .accentColor : .black)
     }
     
-    private func SearchInputFieldView() -> some View {
+    private func SearchInputField() -> some View {
         TextField(
             "",
             text: $searchTerm,
-            prompt: Text(Strings.General.searchPokemonPlaceholder)
+            prompt: Text(prompt)
         )
         .padding(.trailing, Sizes.Padding.medium)
         .textInputAutocapitalization(.never)
@@ -43,10 +46,12 @@ struct SearchBoxView: View {
     }
 }
 
-struct SearchBoxView_Previews: PreviewProvider {
+// MARK: Previews
+
+struct SearchField_Previews: PreviewProvider {
     
     static var previews: some View {
-        SearchBoxView()
+        SearchField(prompt: "Preview Prompt")
             .padding()
     }
 }

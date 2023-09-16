@@ -39,7 +39,7 @@ struct RippleImageView_Previews: PreviewProvider {
             RippleImageView(image: "jigglypuff")
         }
         .background(.black)
-        .frame(width: .infinity, height: .infinity)
+        .fullScreen()
         .previewLayout(.fixed(width: .infinity, height: .infinity))
     }
 }
