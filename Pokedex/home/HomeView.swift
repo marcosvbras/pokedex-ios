@@ -2,15 +2,22 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @State private var navigationPath = NavigationPath()
+    
     var body: some View {
-        ScrollView {
-            VStack {
-                SearchSectionView()
-                
-                NewsSectionView()
+        NavigationStack(path: $navigationPath) {
+            ScrollView {
+                VStack {
+                    SearchSectionView()
+                    
+                    NewsSectionView()
+                }
+            }
+            .background(.white)
+            .navigationDestination(for: Int.self) { _ in
+                PokemonSearchingView()
             }
         }
-        .background(.white)
     }
     
     private func SearchSectionView() -> some View {
@@ -34,6 +41,9 @@ struct HomeView: View {
                                 .offset(x: 80, y: -36)
                         }
                     )
+                    .onTapGesture {
+                        navigationPath.append(0)
+                    }
             }
             .padding(.horizontal, Sizes.Padding.medium)
             .padding(.top, Sizes.Padding.large)

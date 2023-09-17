@@ -2,7 +2,6 @@ import SwiftUI
 
 struct FavoritesView: View {
     
-    @ObservedObject private var viewModel = PokemonViewModel()
     @State private var selectedDisplayLayout: Int = 0
     
     var body: some View {
@@ -17,7 +16,7 @@ struct FavoritesView: View {
             .padding(.top, Sizes.Padding.medium)
             .padding(.bottom, Sizes.Padding.small)
             
-            List(viewModel.pokemons, id: \.id) { item in
+            List(items, id: \.id) { item in
                 FavoriteCardView(uiModel: item)
                     .listRowSeparator(.hidden)
                     .listRowInsets(EdgeInsets(top: Sizes.Padding.small, leading: Sizes.Padding.medium, bottom: Sizes.Padding.small, trailing: Sizes.Padding.medium))

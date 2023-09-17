@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct CacheAsyncImage<Content, Content2>: View where Content: View, Content2: View {
+    
     private let url: URL?
     private let scale: CGFloat
     private let transaction: Transaction?
@@ -50,15 +51,19 @@ struct CacheAsyncImage<Content, Content2>: View where Content: View, Content2: V
             let _ = print("request: \(url?.absoluteString ?? "")")
 #endif
             if contentPhase != nil {
-                AsyncImage(url: url,
-                           scale: scale,
-                           transaction: transaction ?? Transaction(),
-                           content: { cacheAndRender(phase: $0) })
+                AsyncImage(
+                    url: url,
+                    scale: scale,
+                    transaction: transaction ?? Transaction(),
+                    content: { cacheAndRender(phase: $0) }
+                )
             } else if contentImage != nil && placeholder != nil {
-                AsyncImage(url: url,
-                           scale: scale,
-                           content: { cacheAndRender(image: $0) },
-                           placeholder: placeholder!)
+                AsyncImage(
+                    url: url,
+                    scale: scale,
+                    content: { cacheAndRender(image: $0) },
+                    placeholder: placeholder!
+                )
             }
         }
     }

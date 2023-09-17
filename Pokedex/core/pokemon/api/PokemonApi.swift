@@ -7,6 +7,8 @@ protocol PokemonAPIProtocol {
     func fetchPokemonList(limit: Int, offset: Int) -> AnyPublisher<PokemonListResponse, AFError>
     
     func fetchPokemonInfo(withId: Int) -> AnyPublisher<PokemonInfoResponse, AFError>
+    
+    func fetchPokemonInfo(withName: String) -> AnyPublisher<PokemonInfoResponse, AFError>
 }
 
 struct PokemonAPI: PokemonAPIProtocol {

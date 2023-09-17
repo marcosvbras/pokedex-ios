@@ -20,17 +20,21 @@ final class PokemonRepository {
     func getPokemonList(limit: Int = 20, offset: Int = 0) -> AnyPublisher<[PokemonListItem], AFError> {
         return pokemonApi.fetchPokemonList(limit: limit, offset: offset)
             .map { $0.results }
-            .map { pokemonResponses in
-                pokemonResponses.map { self.pokemonListItemMapper.apply(input: $0) }
+            .map { responses in
+                responses.map { self.pokemonListItemMapper.apply(input: $0) }
             }
             .eraseToAnyPublisher()
     }
     
-    func getPokemonInfo(withId: Int) -> AnyPublisher<Pokemon, AFError> {
-        return pokemonApi.fetchPokemonInfo(withId: withId)
-            .map { pokemonInfoResponse in
-                self.pokemonMapper.apply(input: pokemonInfoResponse)
-            }
+    func getPokemonInfo(withId id: Int) -> AnyPublisher<Pokemon, AFError> {
+        return pokemonApi.fetchPokemonInfo(withId: id)
+            .map { response in self.pokemonMapper.apply(input: response) }
+            .eraseToAnyPublisher()
+    }
+    
+    func getPokemonInfo(withName name: String) -> AnyPublisher<Pokemon, AFError> {
+        return pokemonApi.fetchPokemonInfo(withName: name)
+            .map { response in self.pokemonMapper.apply(input: response) }
             .eraseToAnyPublisher()
     }
 }

@@ -10,7 +10,7 @@ struct PokemonListItemMapper: Mapper {
     }
     
     private func mapId(_ resourceUrl: String) -> Int {
-        var url = URL(string: resourceUrl)!
+        let url = URL(string: resourceUrl)!
         
         return Int(url.pathComponents.last!) ?? 0
     }
