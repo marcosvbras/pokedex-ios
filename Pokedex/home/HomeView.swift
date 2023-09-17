@@ -30,20 +30,23 @@ struct HomeView: View {
                 Text(Strings.Home.searchTitle)
                     .font(.system(size: 26))
                 
-                SearchField(prompt: Strings.General.searchPokemonPrompt)
-                    .padding(.bottom, 20)
-                    .background(
-                        alignment: .top, content: {
-                            Image(Icons.homeBackground1)
-                                .resizable()
-                                .frame(width: 43, height: 43)
-                                .opacity(0.1)
-                                .offset(x: 80, y: -36)
-                        }
-                    )
-                    .onTapGesture {
-                        navigationPath.append(0)
+                SearchField(
+                    prompt: Strings.General.searchPokemonPrompt,
+                    onSearchSubmited: { search in }
+                )
+                .padding(.bottom, 20)
+                .background(
+                    alignment: .top, content: {
+                        Image(Icons.homeBackground1)
+                            .resizable()
+                            .frame(width: 43, height: 43)
+                            .opacity(0.1)
+                            .offset(x: 80, y: -36)
                     }
+                )
+                .onTapGesture {
+                    navigationPath.append(0)
+                }
             }
             .padding(.horizontal, Sizes.Padding.medium)
             .padding(.top, Sizes.Padding.large)

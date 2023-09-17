@@ -4,7 +4,7 @@ struct PokemonListItemMapper: Mapper {
     
     func apply(input: PokemonListItemResponse) -> PokemonListItem {
         return PokemonListItem(
-            name: input.name,
+            name: input.name.localizedCapitalized,
             id: mapId(input.url)
         )
     }

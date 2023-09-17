@@ -38,6 +38,8 @@
 		1BA820372AB70B2A005B43FD /* SearchingItemUiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA820362AB70B2A005B43FD /* SearchingItemUiModel.swift */; };
 		1BA820392AB70C5E005B43FD /* PokemonSearchingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA820382AB70C5E005B43FD /* PokemonSearchingViewModel.swift */; };
 		1BA8203B2AB70CCC005B43FD /* SearchingItemUiModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8203A2AB70CCC005B43FD /* SearchingItemUiModelMapper.swift */; };
+		1BA8203D2AB76041005B43FD /* PokemonSearchingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8203C2AB76041005B43FD /* PokemonSearchingState.swift */; };
+		1BA8203F2AB765E6005B43FD /* EmptySearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8203E2AB765E6005B43FD /* EmptySearchResultView.swift */; };
 		1BAB8ED82AA61C28002FCFE2 /* IconButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAB8ED72AA61C28002FCFE2 /* IconButtonView.swift */; };
 		1BAB8EDA2AA620FA002FCFE2 /* SearchToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAB8ED92AA620FA002FCFE2 /* SearchToolbarView.swift */; };
 		1BAB8EDE2AA62866002FCFE2 /* SegmentedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAB8EDD2AA62866002FCFE2 /* SegmentedControlView.swift */; };
@@ -102,6 +104,8 @@
 		1BA820362AB70B2A005B43FD /* SearchingItemUiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingItemUiModel.swift; sourceTree = "<group>"; };
 		1BA820382AB70C5E005B43FD /* PokemonSearchingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonSearchingViewModel.swift; sourceTree = "<group>"; };
 		1BA8203A2AB70CCC005B43FD /* SearchingItemUiModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingItemUiModelMapper.swift; sourceTree = "<group>"; };
+		1BA8203C2AB76041005B43FD /* PokemonSearchingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonSearchingState.swift; sourceTree = "<group>"; };
+		1BA8203E2AB765E6005B43FD /* EmptySearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySearchResultView.swift; sourceTree = "<group>"; };
 		1BAB8ED72AA61C28002FCFE2 /* IconButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButtonView.swift; sourceTree = "<group>"; };
 		1BAB8ED92AA620FA002FCFE2 /* SearchToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchToolbarView.swift; sourceTree = "<group>"; };
 		1BAB8EDD2AA62866002FCFE2 /* SegmentedControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlView.swift; sourceTree = "<group>"; };
@@ -254,6 +258,7 @@
 				1BA820362AB70B2A005B43FD /* SearchingItemUiModel.swift */,
 				1BA820382AB70C5E005B43FD /* PokemonSearchingViewModel.swift */,
 				1BA8203A2AB70CCC005B43FD /* SearchingItemUiModelMapper.swift */,
+				1BA8203C2AB76041005B43FD /* PokemonSearchingState.swift */,
 			);
 			path = searching;
 			sourceTree = "<group>";
@@ -486,6 +491,7 @@
 				1BAB8EDD2AA62866002FCFE2 /* SegmentedControlView.swift */,
 				1B94E5D22AA76E4D00A64B68 /* CollapsibleListSettings.swift */,
 				1BA820282AB671A8005B43FD /* CacheAsyncImage.swift */,
+				1BA8203E2AB765E6005B43FD /* EmptySearchResultView.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -586,6 +592,7 @@
 				1BFB15E52A96B77800505E4E /* MainView.swift in Sources */,
 				1BFB15E32A96B54700505E4E /* DetailsView.swift in Sources */,
 				1BFB15C92A96B0FA00505E4E /* ContentView.swift in Sources */,
+				1BA8203D2AB76041005B43FD /* PokemonSearchingState.swift in Sources */,
 				1BA820182AB63FE2005B43FD /* Pokemon.swift in Sources */,
 				1BA8200E2AB6285A005B43FD /* SpriteResponse.swift in Sources */,
 				1BA820352AB70AD9005B43FD /* SearchingCardView.swift in Sources */,
@@ -593,6 +600,7 @@
 				1BA820272AB6579E005B43FD /* Mapper.swift in Sources */,
 				1BFB15C72A96B0FA00505E4E /* PokedexApp.swift in Sources */,
 				1BA820062AB50204005B43FD /* ViewModifiers.swift in Sources */,
+				1BA8203F2AB765E6005B43FD /* EmptySearchResultView.swift in Sources */,
 				1BB241BA2AA3D09A00D69789 /* Sizes.swift in Sources */,
 				1BB241B62AA38DB000D69789 /* TabContainerView.swift in Sources */,
 				1BFB15E12A96B4F700505E4E /* HomeView.swift in Sources */,

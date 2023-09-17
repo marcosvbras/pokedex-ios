@@ -21,3 +21,7 @@
 "segmented.control.item.list" = "List";
 
 "segmented.control.item.grid" = "Grid";
+
+// MARK: Searching
+
+"empty.pokemon.search.title" = "No pokemons found";

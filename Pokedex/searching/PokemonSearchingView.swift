@@ -6,24 +6,35 @@ struct PokemonSearchingView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            SearchField(prompt: Strings.General.searchPokemonPrompt)
-                .padding(.bottom, 5)
-                .padding(.horizontal, Sizes.Padding.medium)
-                .padding(.top, 40)
+            SearchField(
+                prompt: Strings.General.searchPokemonPrompt,
+                onSearchSubmited: { search in
+                    viewModel.searchPokemon(name: search)
+                }
+            )
+            .padding(.bottom, 5)
+            .padding(.horizontal, Sizes.Padding.medium)
+            .padding(.top, 40)
             
-            List(viewModel.pokemons, id: \.id) { item in
-                SearchingCardView(uiModel: item)
-                    .listRowSeparator(.hidden)
-                    .listRowInsets(
-                        EdgeInsets(
-                            top: Sizes.Padding.small,
-                            leading: Sizes.Padding.medium,
-                            bottom: Sizes.Padding.small,
-                            trailing: Sizes.Padding.medium
+            if viewModel.state.searchResult.isEmpty {
+                Spacer()
+                EmptySearchResultView()
+                Spacer()
+            } else {
+                List(viewModel.state.searchResult, id: \.id) { item in
+                    SearchingCardView(uiModel: item)
+                        .listRowSeparator(.hidden)
+                        .listRowInsets(
+                            EdgeInsets(
+                                top: Sizes.Padding.small,
+                                leading: Sizes.Padding.medium,
+                                bottom: Sizes.Padding.small,
+                                trailing: Sizes.Padding.medium
+                            )
                         )
-                    )
+                }
+                .listStyle(.plain)
             }
-            .listStyle(.plain)
         }
         .fullScreen()
         .onAppear {

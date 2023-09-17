@@ -9,4 +9,5 @@ struct Icons {
     static let filledPokeball = "filledPokeball"
     static let homeBackground1 = "background1"
     static let homeBackground2 = "background2"
+    static let emptySearch = "no-pokemon-found"
 }

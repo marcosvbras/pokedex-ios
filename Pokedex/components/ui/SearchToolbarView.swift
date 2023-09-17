@@ -13,7 +13,8 @@ struct SearchToolbarView<CollapsibleContent: View>: View {
                 SearchField(
                     height: 60,
                     isFocused: _isSearchFocused,
-                    prompt: prompt
+                    prompt: prompt,
+                    onSearchSubmited: { search in }
                 )
 
                 IconButtonView(

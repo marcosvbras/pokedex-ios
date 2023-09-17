@@ -19,4 +19,8 @@ enum Strings {
         static let greetingsHeader: LocalizedStringKey = "home.greetings.header"
         static let searchTitle: LocalizedStringKey = "home.search.title"
     }
+    
+    enum Searching {
+        static let emptySearchMessage: LocalizedStringKey = "empty.pokemon.search.title"
+    }
 }

@@ -10,7 +10,7 @@ final class PokemonMapper: Mapper {
     func apply(input: PokemonInfoResponse) -> Pokemon {
         return Pokemon(
             id: input.id,
-            name: input.name,
+            name: input.name.localizedCapitalized,
             weight: input.weight,
             height: input.height,
             types: mapTypes(input.types),

@@ -2,10 +2,11 @@ import SwiftUI
 
 struct SearchField: View {
     
-    @State var searchTerm = ""
+    @State private var searchTerm = ""
     var height: CGFloat = 60
     @FocusState var isFocused: Bool
     var prompt: LocalizedStringKey
+    var onSearchSubmited: (_ search: String) -> Void?
     
     var body: some View {
         HStack {
@@ -43,6 +44,9 @@ struct SearchField: View {
         .onChange(of: isFocused) { isFocused in
             self.isFocused = isFocused
         }
+        .onSubmit {
+            onSearchSubmited(searchTerm)
+        }
     }
 }
 
@@ -51,7 +55,7 @@ struct SearchField: View {
 struct SearchField_Previews: PreviewProvider {
     
     static var previews: some View {
-        SearchField(prompt: "Preview Prompt")
+        SearchField(prompt: "Preview Prompt", onSearchSubmited: { search in })
             .padding()
     }
 }
