@@ -17,7 +17,7 @@ struct FavoritesView: View {
             .padding(.top, Sizes.Padding.medium)
             .padding(.bottom, Sizes.Padding.small)
             
-            List(items, id: \.id) { item in
+            List(viewModel.pokemons, id: \.id) { item in
                 FavoriteCardView(uiModel: item)
                     .listRowSeparator(.hidden)
                     .listRowInsets(EdgeInsets(top: Sizes.Padding.small, leading: Sizes.Padding.medium, bottom: Sizes.Padding.small, trailing: Sizes.Padding.medium))

@@ -1,29 +1,37 @@
 import Foundation
+import Alamofire
 import Combine
 
-class PokemonViewModel: ObservableObject {
+final class PokemonViewModel: ObservableObject {
     
     @Published var pokemons = [FavoriteItemUiModel]()
     private var cancellableSet: Set<AnyCancellable> = []
-    private var pokemonApi: PokemonAPIProtocol
     private var favoritePokemonUiModelMapper: FavoritePokemonUiModelMapper
+    private var count = 0
+    private let getPokemonListUseCase: GetPokemonListUseCase
     
     init(
-        pokemonApi: PokemonAPIProtocol = PokemonAPI(),
-        favoritePokemonUiModelMapper: FavoritePokemonUiModelMapper = FavoritePokemonUiModelMapper()
+        favoritePokemonUiModelMapper: FavoritePokemonUiModelMapper = FavoritePokemonUiModelMapper(),
+        getPokemonListUseCase: GetPokemonListUseCase = GetPokemonListUseCase()
     ) {
-        self.pokemonApi = pokemonApi
         self.favoritePokemonUiModelMapper = favoritePokemonUiModelMapper
+        self.getPokemonListUseCase = getPokemonListUseCase
         self.fetchPokemonList()
     }
     
     func fetchPokemonList() {
-        pokemonApi.getPokemons(limit: 20, offset: 0)
+        if count > 0 {
+            return
+        }
+        
+        count += 1
+        
+        getPokemonListUseCase.execute(params: ())
             .sink(
                 receiveCompletion: { _ in },
                 receiveValue: { value in
-                    self.pokemons = value.results.map {
-                        self.favoritePokemonUiModelMapper.apply(pokemonResponse: $0)
+                    self.pokemons = value.map {
+                        self.favoritePokemonUiModelMapper.apply(input: $0)
                     }
                 }
             )

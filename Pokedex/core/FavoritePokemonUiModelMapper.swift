@@ -1,11 +1,11 @@
 
-struct FavoritePokemonUiModelMapper {
+struct FavoritePokemonUiModelMapper: Mapper {
     
-    func apply(pokemonResponse: PokemonResponse) -> FavoriteItemUiModel {
+    func apply(input: Pokemon) -> FavoriteItemUiModel {
         return FavoriteItemUiModel(
-            image: "magneton",
-            name: pokemonResponse.name,
-            types: [TypeUiModel(label: "Steel")]
+            image: input.sprites.standard,
+            name: input.name,
+            types: input.types.map { TypeUiModel(label: $0) }
         )
     }
 }

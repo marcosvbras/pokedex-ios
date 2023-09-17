@@ -28,20 +28,24 @@ struct FavoriteCardView: View {
             
             Spacer()
             
-            RippleImageView(image: uiModel.image)
+            RippleImageView(
+                url: uiModel.image,
+                imageSize: 80,
+                rippleSize: 170,
+                onImageLoaded: { image in
+                    self.setAverageColor(image: image.asUIImage())
+                }
+            )
         }
         .fillWidth()
         .frame(maxHeight: 130)
         .background(backgroundColor)
         .cornerRadius(12)
         .shadow(radius: 2, x: 0, y: 1)
-        .onAppear {
-            self.setAverageColor(image: uiModel.image)
-        }
     }
     
-    private func setAverageColor(image: String) {
-        let uiColor = UIImage(named: image)?.findAverageColor(algorithm: .squareRoot) ?? .clear
+    private func setAverageColor(image: UIImage) {
+        let uiColor = image.findAverageColor(algorithm: .squareRoot) ?? .clear
         backgroundColor = Color(uiColor)
     }
 }
