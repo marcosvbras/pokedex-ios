@@ -1,7 +1,16 @@
 import Combine
 import Alamofire
 
-final class PokemonRepository {
+protocol PokemonRepositoryProtocol {
+    
+    func getPokemonList(limit: Int, offset: Int) -> AnyPublisher<[PokemonListItem], AFError>
+    
+    func getPokemonInfo(withId id: Int) -> AnyPublisher<Pokemon, AFError>
+    
+    func getPokemonInfo(withName name: String) -> AnyPublisher<Pokemon, AFError>
+}
+
+final class PokemonRepository: PokemonRepositoryProtocol {
     
     private let pokemonApi: PokemonAPIProtocol
     private let pokemonMapper: PokemonMapper

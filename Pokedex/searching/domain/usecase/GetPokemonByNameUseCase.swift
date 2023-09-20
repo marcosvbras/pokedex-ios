@@ -3,9 +3,9 @@ import Alamofire
 
 final class GetPokemonByNameUseCase: UseCase {
     
-    private let pokemonRepository: PokemonRepository
+    private let pokemonRepository: PokemonRepositoryProtocol
     
-    init(pokemonRepository: PokemonRepository = PokemonRepository()) {
+    init(pokemonRepository: PokemonRepositoryProtocol = PokemonRepository()) {
         self.pokemonRepository = pokemonRepository
     }
     
